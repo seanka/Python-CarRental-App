@@ -607,9 +607,7 @@ yes | no
             engineCapacity = 2000
 
         carEngineList = carDictionary[engineCapacity]
-        carToBeDeleted = list(
-            filter(lambda car: car["carId"] == int(carIdInput), carEngineList)
-        )[0]
+        carToBeDeleted = getFilteredCars(carEngineList, {"carId": int(carIdInput)})[0]
 
         if not carToBeDeleted["availability"]:
             print(
@@ -640,9 +638,7 @@ yes | no
             engineCapacity = 2000
 
         carEngineList = carDictionary[engineCapacity]
-        carToBeUpdated = list(
-            filter(lambda car: car["carId"] == int(carIdInput), carEngineList)
-        )[0]
+        carToBeUpdated = getFilteredCars(carEngineList, {"carId": int(carIdInput)})[0]
 
         updateKey = [
             "carName",
